@@ -27,7 +27,7 @@ public class SwingCurrencyDialog extends JPanel implements CurrencyDialog {
         return selector.getItemAt(selector.getSelectedIndex());
     }
 
-    public void addOnUpdateListener(OnComponentUpdateListener listener) {
+    public void add(OnComponentUpdateListener listener) {
         selector.addActionListener(_ -> listener.changePerformed());
     }
 }

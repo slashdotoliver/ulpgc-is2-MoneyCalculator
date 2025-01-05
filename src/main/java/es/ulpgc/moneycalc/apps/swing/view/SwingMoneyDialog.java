@@ -49,7 +49,7 @@ public class SwingMoneyDialog extends JPanel implements MoneyDialog {
         return new BigDecimal(text);
     }
 
-    public void addOnUpdateListener(OnComponentUpdateListener listener) {
+    public void add(OnComponentUpdateListener listener) {
         amountTextField.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
@@ -66,6 +66,6 @@ public class SwingMoneyDialog extends JPanel implements MoneyDialog {
                 listener.changePerformed();
             }
         });
-        currencyDialog.addOnUpdateListener(listener);
+        currencyDialog.add(listener);
     }
 }

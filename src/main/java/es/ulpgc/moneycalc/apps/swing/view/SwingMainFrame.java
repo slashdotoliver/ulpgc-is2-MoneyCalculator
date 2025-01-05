@@ -1,5 +1,6 @@
 package es.ulpgc.moneycalc.apps.swing.view;
 
+import es.ulpgc.moneycalc.apps.swing.utils.JPanelBuilder;
 import es.ulpgc.moneycalc.apps.swing.view.listeners.OnComponentUpdateListener;
 import es.ulpgc.moneycalc.architecture.control.Command;
 import es.ulpgc.moneycalc.architecture.control.CommandName;
@@ -23,51 +24,40 @@ public class SwingMainFrame extends JFrame {
     private final SwingExchangeRateDisplay exchangeRateDisplay;
 
     public SwingMainFrame(Map<CommandName, Command> commands, List<Currency> currencies) throws HeadlessException {
+        configureFrame();
+        moneyDialog = new SwingMoneyDialog(currencies);
+        currencyDialog = new SwingCurrencyDialog(currencies);
+        moneyDisplay = new SwingMoneyDisplay();
+        exchangeRateDisplay = new SwingExchangeRateDisplay();
+        addPanels();
+        add(() -> commands.get(CommandName.Exchange).execute());
+    }
+
+    private void configureFrame() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Money Calculator");
         setResizable(false);
         setMinimumSize(SIZE);
         setSize(SIZE);
         setLocationRelativeTo(null);
+    }
 
-        moneyDialog = new SwingMoneyDialog(currencies);
-        currencyDialog = new SwingCurrencyDialog(currencies);
-        moneyDisplay = new SwingMoneyDisplay();
-        exchangeRateDisplay = new SwingExchangeRateDisplay();
-
+    private void addPanels() {
         setLayout(new BorderLayout());
-        add(createLeftPanel(), BorderLayout.WEST);
-        add(createCenterPanel(), BorderLayout.CENTER);
-        add(createRightPanel(), BorderLayout.EAST);
-
-        addOnUpdateListener(() -> commands.get(CommandName.Exchange).execute());
+        add(createVerticalPanelWith(List.of(moneyDialog)), BorderLayout.WEST);
+        add(createVerticalPanelWith(List.of(exchangeRateDisplay)), BorderLayout.CENTER);
+        add(createVerticalPanelWith(List.of(moneyDisplay, currencyDialog)), BorderLayout.EAST);
     }
 
-    private void addOnUpdateListener(OnComponentUpdateListener listener) {
-        moneyDialog.addOnUpdateListener(listener);
-        currencyDialog.addOnUpdateListener(listener);
+    private void add(OnComponentUpdateListener listener) {
+        moneyDialog.add(listener);
+        currencyDialog.add(listener);
     }
 
-    private JPanel createLeftPanel() {
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.add(moneyDialog);
-        return panel;
-    }
-
-    private JPanel createCenterPanel() {
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.add(exchangeRateDisplay);
-        return panel;
-    }
-
-    private JPanel createRightPanel() {
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.add(moneyDisplay);
-        panel.add(currencyDialog);
-        return panel;
+    private static JPanel createVerticalPanelWith(List<Component> components) {
+        JPanelBuilder builder = JPanelBuilder.withBoxLayout(BoxLayout.Y_AXIS);
+        components.forEach(builder::add);
+        return builder.build();
     }
 
     public MoneyDialog getMoneyDialog() {
