@@ -37,7 +37,6 @@ public class SwingMainFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Money Calculator");
         setResizable(false);
-        setMinimumSize(SIZE);
         setSize(SIZE);
         setLocationRelativeTo(null);
     }
