@@ -12,6 +12,7 @@ import es.ulpgc.moneycalc.architecture.view.MoneyDisplay;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -43,9 +44,9 @@ public class SwingMainFrame extends JFrame {
 
     private void addPanels() {
         setLayout(new BorderLayout());
-        add(createVerticalPanelWith(List.of(moneyDialog)), BorderLayout.WEST);
-        add(createVerticalPanelWith(List.of(exchangeRateDisplay)), BorderLayout.CENTER);
-        add(createVerticalPanelWith(List.of(moneyDisplay, currencyDialog)), BorderLayout.EAST);
+        add(createVerticalPanelWith(moneyDialog), BorderLayout.WEST);
+        add(createVerticalPanelWith(exchangeRateDisplay), BorderLayout.CENTER);
+        add(createVerticalPanelWith(moneyDisplay, currencyDialog), BorderLayout.EAST);
     }
 
     private void add(OnComponentUpdateListener listener) {
@@ -53,9 +54,9 @@ public class SwingMainFrame extends JFrame {
         currencyDialog.add(listener);
     }
 
-    private static JPanel createVerticalPanelWith(List<Component> components) {
+    private static JPanel createVerticalPanelWith(Component... components) {
         return JPanelBuilder.withBoxLayout(BoxLayout.Y_AXIS)
-                .add(components)
+                .add(Arrays.stream(components).toList())
                 .build();
     }
 
