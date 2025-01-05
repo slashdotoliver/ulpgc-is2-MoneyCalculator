@@ -16,7 +16,7 @@ public record JPanelBuilder(List<Component> components, int axis) {
     }
 
     public JPanelBuilder add(List<Component> components) {
-        components.forEach(this::add);
+        this.components.addAll(components);
         return this;
     }
 
