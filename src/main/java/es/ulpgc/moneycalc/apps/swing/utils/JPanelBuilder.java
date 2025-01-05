@@ -15,6 +15,11 @@ public record JPanelBuilder(List<Component> components, int axis) {
         return this;
     }
 
+    public JPanelBuilder add(List<Component> components) {
+        components.forEach(this::add);
+        return this;
+    }
+
     public JPanel build() {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, axis));

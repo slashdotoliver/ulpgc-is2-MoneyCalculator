@@ -55,9 +55,9 @@ public class SwingMainFrame extends JFrame {
     }
 
     private static JPanel createVerticalPanelWith(List<Component> components) {
-        JPanelBuilder builder = JPanelBuilder.withBoxLayout(BoxLayout.Y_AXIS);
-        components.forEach(builder::add);
-        return builder.build();
+        return JPanelBuilder.withBoxLayout(BoxLayout.Y_AXIS)
+                .add(components)
+                .build();
     }
 
     public MoneyDialog getMoneyDialog() {
