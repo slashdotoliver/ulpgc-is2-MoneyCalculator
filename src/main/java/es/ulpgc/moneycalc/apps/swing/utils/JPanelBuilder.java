@@ -3,26 +3,34 @@ package es.ulpgc.moneycalc.apps.swing.utils;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-public record JPanelBuilder(List<Component> components, int axis) {
+public class JPanelBuilder {
+
+    public interface LayoutConfigurator {
+        void configure(JPanel panel);
+    }
+
+    private final LayoutConfigurator layoutConfigurator;
+    private final List<Component> components = new ArrayList<>();
+
+    public JPanelBuilder(LayoutConfigurator layoutConfigurator) {
+        this.layoutConfigurator = layoutConfigurator;
+    }
+
     public static JPanelBuilder withBoxLayout(int axis) {
-        return new JPanelBuilder(new ArrayList<>(), axis);
+        return new JPanelBuilder(panel -> panel.setLayout(new BoxLayout(panel, axis)));
     }
 
-    public JPanelBuilder add(Component component) {
-        components.add(component);
-        return this;
-    }
-
-    public JPanelBuilder add(List<Component> components) {
-        this.components.addAll(components);
+    public JPanelBuilder add(Component... components) {
+        this.components.addAll(Arrays.asList(components));
         return this;
     }
 
     public JPanel build() {
         JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, axis));
+        layoutConfigurator.configure(panel);
         components.forEach(panel::add);
         return panel;
     }

@@ -12,7 +12,6 @@ import es.ulpgc.moneycalc.architecture.view.MoneyDisplay;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -56,7 +55,7 @@ public class SwingMainFrame extends JFrame {
 
     private static JPanel createVerticalPanelWith(Component... components) {
         return JPanelBuilder.withBoxLayout(BoxLayout.Y_AXIS)
-                .add(Arrays.stream(components).toList())
+                .add(components)
                 .build();
     }
 
