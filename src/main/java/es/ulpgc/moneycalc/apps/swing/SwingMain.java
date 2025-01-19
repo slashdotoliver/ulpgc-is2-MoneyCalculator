@@ -4,9 +4,9 @@ import es.ulpgc.moneycalc.apps.mock.MockMain;
 import es.ulpgc.moneycalc.apps.mock.persistence.MockCurrencyLoader;
 import es.ulpgc.moneycalc.apps.mock.persistence.MockExchangeRateLoader;
 import es.ulpgc.moneycalc.apps.swing.view.frames.SwingMainFrame;
-import es.ulpgc.moneycalc.architecture.control.Command;
-import es.ulpgc.moneycalc.architecture.control.CommandName;
-import es.ulpgc.moneycalc.architecture.control.ExchangeCommand;
+import es.ulpgc.moneycalc.architecture.commands.Command;
+import es.ulpgc.moneycalc.architecture.commands.CommandName;
+import es.ulpgc.moneycalc.architecture.commands.ExchangeCommand;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package es.ulpgc.moneycalc.architecture.control;
+package es.ulpgc.moneycalc.architecture.commands;
 
 import es.ulpgc.moneycalc.architecture.model.Currency;
 import es.ulpgc.moneycalc.architecture.model.ExchangeRate;

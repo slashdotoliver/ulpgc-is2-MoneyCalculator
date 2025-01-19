@@ -1,4 +1,4 @@
-package es.ulpgc.moneycalc.architecture.control;
+package es.ulpgc.moneycalc.architecture.commands;
 
 public interface Command {
     void execute();

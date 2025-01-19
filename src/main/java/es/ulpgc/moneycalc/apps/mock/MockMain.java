@@ -6,7 +6,7 @@ import es.ulpgc.moneycalc.apps.mock.view.dialogs.MockCurrencyDialog;
 import es.ulpgc.moneycalc.apps.mock.view.displays.MockExchangeRateDisplay;
 import es.ulpgc.moneycalc.apps.mock.view.dialogs.MockMoneyDialog;
 import es.ulpgc.moneycalc.apps.mock.view.displays.MockMoneyDisplay;
-import es.ulpgc.moneycalc.architecture.control.ExchangeCommand;
+import es.ulpgc.moneycalc.architecture.commands.ExchangeCommand;
 import es.ulpgc.moneycalc.architecture.model.Currency;
 import es.ulpgc.moneycalc.architecture.persistence.CurrencyLoader;
 
