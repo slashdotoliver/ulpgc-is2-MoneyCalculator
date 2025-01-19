@@ -2,10 +2,10 @@ package es.ulpgc.moneycalc.apps.mock;
 
 import es.ulpgc.moneycalc.apps.mock.persistence.MockCurrencyLoader;
 import es.ulpgc.moneycalc.apps.mock.persistence.MockExchangeRateLoader;
-import es.ulpgc.moneycalc.apps.mock.view.MockCurrencyDialog;
-import es.ulpgc.moneycalc.apps.mock.view.MockExchangeRateDisplay;
-import es.ulpgc.moneycalc.apps.mock.view.MockMoneyDialog;
-import es.ulpgc.moneycalc.apps.mock.view.MockMoneyDisplay;
+import es.ulpgc.moneycalc.apps.mock.view.dialogs.MockCurrencyDialog;
+import es.ulpgc.moneycalc.apps.mock.view.displays.MockExchangeRateDisplay;
+import es.ulpgc.moneycalc.apps.mock.view.dialogs.MockMoneyDialog;
+import es.ulpgc.moneycalc.apps.mock.view.displays.MockMoneyDisplay;
 import es.ulpgc.moneycalc.architecture.control.ExchangeCommand;
 import es.ulpgc.moneycalc.architecture.model.Currency;
 import es.ulpgc.moneycalc.architecture.persistence.CurrencyLoader;

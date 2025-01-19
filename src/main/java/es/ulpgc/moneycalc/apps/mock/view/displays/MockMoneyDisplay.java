@@ -1,4 +1,4 @@
-package es.ulpgc.moneycalc.apps.mock.view;
+package es.ulpgc.moneycalc.apps.mock.view.displays;
 
 import es.ulpgc.moneycalc.architecture.model.Money;
 import es.ulpgc.moneycalc.architecture.view.MoneyDisplay;
