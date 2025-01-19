@@ -1,6 +1,10 @@
-package es.ulpgc.moneycalc.apps.swing.view;
+package es.ulpgc.moneycalc.apps.swing.view.frames;
 
 import es.ulpgc.moneycalc.apps.swing.utils.JPanelBuilder;
+import es.ulpgc.moneycalc.apps.swing.view.dialogs.SwingMoneyDialog;
+import es.ulpgc.moneycalc.apps.swing.view.displays.SwingMoneyDisplay;
+import es.ulpgc.moneycalc.apps.swing.view.dialogs.SwingCurrencyDialog;
+import es.ulpgc.moneycalc.apps.swing.view.displays.SwingExchangeRateDisplay;
 import es.ulpgc.moneycalc.apps.swing.view.listeners.OnComponentUpdateListener;
 import es.ulpgc.moneycalc.architecture.control.Command;
 import es.ulpgc.moneycalc.architecture.control.CommandName;

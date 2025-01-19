@@ -3,7 +3,7 @@ package es.ulpgc.moneycalc.apps.swing;
 import es.ulpgc.moneycalc.apps.mock.MockMain;
 import es.ulpgc.moneycalc.apps.mock.persistence.MockCurrencyLoader;
 import es.ulpgc.moneycalc.apps.mock.persistence.MockExchangeRateLoader;
-import es.ulpgc.moneycalc.apps.swing.view.SwingMainFrame;
+import es.ulpgc.moneycalc.apps.swing.view.frames.SwingMainFrame;
 import es.ulpgc.moneycalc.architecture.control.Command;
 import es.ulpgc.moneycalc.architecture.control.CommandName;
 import es.ulpgc.moneycalc.architecture.control.ExchangeCommand;

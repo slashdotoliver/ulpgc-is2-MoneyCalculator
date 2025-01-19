@@ -1,4 +1,4 @@
-package es.ulpgc.moneycalc.apps.swing.view;
+package es.ulpgc.moneycalc.apps.swing.view.dialogs;
 
 import es.ulpgc.moneycalc.apps.swing.view.listeners.OnComponentUpdateListener;
 import es.ulpgc.moneycalc.architecture.model.Currency;
